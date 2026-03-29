@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../components/Cards/NoteCard'
 import {MdAdd} from 'react-icons/md'
+import AddEditNotes from "./AddEditNotes";
+import Modal from 'react-modal';
 
 const Home = () => {
+  const [showAddEditNote,setShowAddEditNote] = useState({
+    isShown:false,
+    type:"add",
+    data:null,
+  });
   return (
   <>
   <Navbar />
@@ -18,39 +25,42 @@ const Home = () => {
     onDelete={()=>{}}
     onPinNote={()=>{}}
     />
-      <NoteCard title="Meeting @ 7pmm" 
-    date="18 July 2026"
-    tags="#meeting"
-    content="Meeting @7pm ,where i want to learn graphs"
-    isPinned={true}
-    onEdit={()=>{}}
-    onDelete={()=>{}}
-    onPinNote={()=>{}}
-    />
-      <NoteCard title="Meeting @ 7pmm" 
-    date="18 July 2026"
-    tags="#meeting"
-    content="Meeting @7pm ,where i want to learn graphs"
-    isPinned={true}
-    onEdit={()=>{}}
-    onDelete={()=>{}}
-    onPinNote={()=>{}}
-    />
-      <NoteCard title="Meeting @ 7pmm" 
-    date="18 July 2026"
-    tags="#meeting"
-    content="Meeting @7pm ,where i want to learn graphs"
-    isPinned={true}
-    onEdit={()=>{}}
-    onDelete={()=>{}}
-    onPinNote={()=>{}}
-    />
-    
     </div>
   </div>
-  <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={()=>{}}>
+  <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10"
+   onClick={()=>{
+    setShowAddEditNote({
+      isShown:true,
+      type:"add",
+      data:null,
+    })
+   }}>
     <MdAdd className="text-[32px] text-white"/>
   </button>
+
+  <Modal  isOpen={showAddEditNote.isShown} onRequestClose={()=>{}}
+    style={{
+      overlay:{
+        backgroundColor:'rgba(0,0,0,0.5)',
+        }
+    }}
+    contentLabel="Add/Edit Note Modal"
+    className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll">
+      
+      <AddEditNotes
+      type={showAddEditNote.type}
+      noteData={showAddEditNote.data}
+      onClose={()=>{
+        setShowAddEditNote({
+          isShown:false,
+          type:"add",
+          data:null
+        });
+      }}
+      />
+      </Modal>
+    
+  
   </>
   );
 };
