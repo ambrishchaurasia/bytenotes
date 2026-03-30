@@ -10,7 +10,12 @@ const AddEditNotes = ({noteData,type,onClose}) => {
   const [error,setError]= React.useState(null);
   const addNewNote = async() =>{}
   const editNote = async() =>{}
-  const handleAddNote =()=>{}
+
+   const handleAddNote = () => {
+    if (!title) {
+      setError("Title is required");
+      return;
+    }
     if(!title)
     {
       setError("Title is required");
