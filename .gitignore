@@ -1,0 +1,6 @@
+# Ignore config files with sensitive data
+Backend/config.json
+Frontend/notes-app/.env
+*.env
+secrets/
+node_modules/
