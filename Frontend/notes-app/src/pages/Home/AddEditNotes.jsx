@@ -1,26 +1,74 @@
 import React, { use } from 'react'
 import TagInput from '../../components/Input/Taginput'
 import { MdClose } from 'react-icons/md';
+import axiosInstance from '../../utils/axiosInstance';
+const AddEditNotes = ({noteData,type,getAllNotes,onClose,showToastMessage}) => {
 
-const AddEditNotes = ({noteData,type,onClose}) => {
-
-  const [title,setTitle] = React.useState("");
-  const[tags,setTags] = React.useState([]);
-  const [content,setContent] = React.useState("");
+  const [title,setTitle] = React.useState(noteData?.title || "");
+  const[tags,setTags] = React.useState(noteData?.tags || []);
+  const [content,setContent] = React.useState(noteData?.content || "");
   const [error,setError]= React.useState(null);
-  const addNewNote = async() =>{}
-  const editNote = async() =>{}
+
+  //AddNote
+  const addNewNote = async() =>{
+    try{
+      const response=await axiosInstance.post("/add-note",{
+        title,
+        content,
+        tags, 
+    });
+    if(response.data && response.data.note)    {
+      showToastMessage("Note added successfully", "success");
+       getAllNotes()
+        onClose();
+    }
+  }
+  catch(err)  {
+    if(err.response && err.response.data && err.response.data.message)
+    {
+      setError(err.response.data.message);
+    }
+    else
+    {
+      setError("An unexpected error occurred while adding note.");
+    }
+  }
+}
+
+
+  //EditNote
+  const editNote = async() =>{
+    const noteId=noteData._id;
+    try{
+      const response=await axiosInstance.put(`/edit-note/${noteId}`, {
+        title,
+        content,
+        tags, 
+    });
+    if(response.data && response.data.note)    {
+      showToastMessage("Note updated successfully", "success");
+       getAllNotes()
+        onClose();
+    }
+  }
+  catch(err)  {
+    if(err.response && err.response.data && err.response.data.message)
+    {
+      setError(err.response.data.message);
+    }
+    else
+    {
+      setError("An unexpected error occurred while adding note.");
+    }
+  }
+  }
 
    const handleAddNote = () => {
     if (!title) {
       setError("Title is required");
       return;
     }
-    if(!title)
-    {
-      setError("Title is required");
-    return;
-    }
+   
     if(!content)
     {
       setError("Content is required");
@@ -43,7 +91,7 @@ const AddEditNotes = ({noteData,type,onClose}) => {
       </button>
       <div className='flex flex-col gap-2'>
         <label className='input-label'>Title</label>
-        <input type="text" className='text-2xl text-slate-950 outline-none' placeholder='Goto Gym @ 5'
+        <input type="text" className='text-2xl text-slate-950 outline-none' placeholder='2 Sum'
         value={title}
         onChange={({target})=>setTitle(target.value)}/>
       </div>
@@ -54,7 +102,7 @@ const AddEditNotes = ({noteData,type,onClose}) => {
       <label className='input-label'>Content</label>
       <textarea type="text"
        className='text-slate-950 outline-none bg-slate-50 p-2 rounded'
-        placeholder='Goto Gym @ 5'
+        placeholder='Can use hash map'
         rows={10}
         value={content}
         onChange={({target})=>setContent(target.value)}
@@ -67,11 +115,16 @@ const AddEditNotes = ({noteData,type,onClose}) => {
           </div>
 
           {error && <p className='text-red-500 text-sm mt-2'>{error}</p>}
-          <button className='px-4 py-2 rounded bg-primary text-white hover:bg-blue-600 mt-4' onClick={(handleAddNote)}>Add</button>
-
+<button
+  className='px-4 py-2 rounded bg-primary text-white hover:bg-blue-600 mt-4'
+  onClick={handleAddNote}
+>
+  {type === "edit" ? "Update" : "Add"}
+</button>
          </div>
        
-  )
-} 
+  );
+} ;
+
 
 export default AddEditNotes
