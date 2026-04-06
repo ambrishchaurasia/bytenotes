@@ -1,8 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const config = require('./config.json'); 
-mongoose.connect(config.connectionString);
-
+mongoose.connect(process.env.MONGO_URI || config.connectionString);
 const express =require('express');
 const cors = require('cors');
 const jwt =require('jsonwebtoken');
@@ -293,8 +292,10 @@ app.get("/search-notes",authenticateToken,async (req,res)=>{
 }
 });
 
-app.listen(8000, () => {
-  console.log("Server running on port 8000");
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
  
