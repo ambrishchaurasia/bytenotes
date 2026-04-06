@@ -1,5 +1,5 @@
 import React, { use } from 'react'
-import TagInput from '../../components/Input/Taginput'
+import TagInput from '../../components/Input/TagInput'
 import { MdClose } from 'react-icons/md';
 import axiosInstance from '../../utils/axiosInstance';
 const AddEditNotes = ({noteData,type,getAllNotes,onClose,showToastMessage}) => {
