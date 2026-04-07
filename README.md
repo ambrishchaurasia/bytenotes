@@ -1,4 +1,4 @@
-#ByteNotes
+## ByteNotes ✏️
 
 ##  What it does
 
@@ -10,19 +10,19 @@ Instead of relying on scattered or limited notes, it provides a **structured and
 
 ## Who it’s for
 
-* 👨‍💻 Students preparing for coding interviews
-* 🧠 Developers practicing DSA regularly
-* 🏁 Competitive programmers who need quick revision
-* 📌 Anyone who wants to build a personal knowledge base of solved problems
+* Students preparing for coding interviews
+*  Developers practicing DSA regularly
+*  Competitive programmers who need quick revision
+*  Anyone who wants to build a personal knowledge base of solved problems
 
 ---
 
 ##  What you can do
 
-* 🔐 Create an account and manage your notes securely
-* 📝 Add detailed notes for each problem (approach, hints, learnings)
-* 🏷️ Organize notes using tags (DP, Graphs, etc.)
-* 🔍 Search and retrieve notes instantly
+*  Create an account and manage your notes securely
+*  Add detailed notes for each problem (approach, hints, learnings)
+*  Organize notes using tags (DP, Graphs, etc.)
+*  Search and retrieve notes instantly
 * ✏️ Edit and refine your understanding over time
 
 ---
