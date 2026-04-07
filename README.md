@@ -5,12 +5,12 @@ ByteNotes is a MERN-based web app that helps you capture, organize, and revisit 
 Built for students and developers preparing for interviews or contests, it lets you create an account, add problem-wise notes, organize them with tags (DP, Graphs, etc.), search instantly, and update them anytime.
 
 ---
-##Tech Stack
+## Tech Stack
 
 React (Vite), Axios, Tailwind CSS • Node.js, Express.js • MongoDB Atlas • JWT Authentication • Deployed on Railway & Vercel
 
 ---
-##How to use
+## How to use
 
 Sign up → Add notes → Tag them → Search & revise anytime
 
