@@ -13,6 +13,7 @@ React (Vite), Axios, Tailwind CSS • Node.js, Express.js • MongoDB Atlas • 
 How to use
 
 Sign up → Add notes → Tag them → Search & revise anytime
+
 ---
 
 🚀 [Try ByteNotes](https://bytnotes.vercel.app/)
