@@ -4,7 +4,7 @@
 
 ByteNotes is a full-stack MERN web-application designed to help developers **capture, organize, and revisit their problem-solving insights** while practicing DSA.
 
-Instead of relying on scattered or limited notes, it provides a **structured and searchable system** where you can store approaches, hints, and key learnings for each problem — making revision faster and more effective.
+Instead of relying on scattered or limited notes, it provides a **structured and searchable system** where you can store approaches, hints, and key learnings for each problem , making revision faster and more effective.
 
 ---
 
@@ -23,7 +23,7 @@ Instead of relying on scattered or limited notes, it provides a **structured and
 *  Add detailed notes for each problem (approach, hints, learnings)
 *  Organize notes using tags (DP, Graphs, etc.)
 *  Search and retrieve notes instantly
-* ✏️ Edit and refine your understanding over time
+*  Edit and refine your understanding over time
 
 ---
 
